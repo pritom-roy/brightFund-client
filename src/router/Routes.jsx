@@ -31,7 +31,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "campaigns/:id",
-                element: <PrivateRoute><Details /></PrivateRoute>,
+                element: <Details />,
                 loader: ({ params }) => fetch(`https://bright-fund-server.vercel.app/campaign/${params.id}`)
             },
             {

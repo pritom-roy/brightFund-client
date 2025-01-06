@@ -6,7 +6,7 @@ const Footer = () => {
 
     return (
         <footer className={`bg-Background text-Text py-4 md:py-10 ${location.pathname === "/home" ? "dark:bg-DarkBackground dark:text-DarkText" : ""}`}>
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 w-11/12">
+            <div className="container grid grid-cols-1 md:grid-cols-3 gap-8 w-11/12 md:w-10/12 mx-auto">
                 {/* Logo and About Section */}
                 <div>
                     <h1 className="text-2xl font-bold text-Primary font-heading">BrightFund</h1>

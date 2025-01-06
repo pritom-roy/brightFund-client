@@ -35,24 +35,25 @@ const AllCampaigns = () => {
     }
 
     return (
-        <div className="pt-2 md:pt-10 px-1 md:px-6 bg-Background">
-            <h2 className="text-4xl text-Primary text-center mb-6 font-heading">
-                All Campaigns
-            </h2>
-            <p className="text-Text text-center mb-6 font-body">
-                Explore the ongoing campaigns and contribute to bring positive change.
-            </p>
-            <div className="flex justify-center mb-6">
-                <button
-                    onClick={handleSort}
-                    className="px-4 py-2 bg-Accent text-white rounded-lg hover:bg-Secondary transition-colors"
-                >
-                    Sort by Minimum Donation (Ascending)
-                </button>
-            </div>
+        <div className="pt-2 md:pt-10 bg-Background">
+            <div className="w-11/12 md:w-10/12 mx-auto">
+                <h2 className="text-4xl text-Primary text-center mb-6 font-heading">
+                    All Campaigns
+                </h2>
+                <p className="text-Text text-center mb-6 font-body">
+                    Explore the ongoing campaigns and contribute to bring positive change.
+                </p>
+                <div className="flex justify-center mb-6">
+                    <button
+                        onClick={handleSort}
+                        className="px-4 py-2 bg-Accent text-white rounded-lg hover:bg-Secondary transition-colors"
+                    >
+                        Sort by Minimum Donation (Ascending)
+                    </button>
+                </div>
 
-            {/* Table for larger screens */}
-            <div className="hidden sm:block overflow-x-auto">
+                {/* Table for larger screens */}
+                {/* <div className="hidden sm:block overflow-x-auto">
                 <table className="table-auto w-full border-collapse border border-gray-200 shadow-md rounded-lg">
                     <thead className="bg-Primary text-white">
                         <tr>
@@ -82,44 +83,45 @@ const AllCampaigns = () => {
                         ))}
                     </tbody>
                 </table>
-            </div>
+            </div> */}
 
-            {/* Card view for smaller screens */}
-            <div className="block sm:hidden">
-                {campaigns.map((campaign) => (
-                    <div
-                        key={campaign._id}
-                        className="flex gap-4 bg-white border rounded-lg shadow-md mb-4 p-4"
-                    >
-                        <div className="">
-                            <h3 className="text-lg font-bold text-Primary">{campaign.title}</h3>
-                            <p className="text-sm text-Text">
-                                <span className="font-semibold">Type:</span> {campaign.type}
-                            </p>
-                            <p className="text-sm text-Text">
-                                <span className="font-semibold">Deadline:</span> {campaign.deadline}
-                            </p>
-                            <p className="text-sm text-Text">
-                                <span className="font-semibold">Min. Donation:</span> ${campaign.minDonation}
-                            </p>
-                            <div className="mt-4">
-                                <Link
-                                    to={`/campaigns/${campaign._id}`}
-                                    className="text-white bg-Accent px-4 py-2 rounded-lg hover:bg-Secondary transition-colors"
-                                >
-                                    See More
-                                </Link>
+                {/* Card view for smaller screens */}
+                <div className="grid grid-cols-2 gap-6">
+                    {campaigns.map((campaign) => (
+                        <div
+                            key={campaign._id}
+                            className="flex flex-col-reverse md:flex-row gap-4 justify-between bg-white border rounded-lg shadow-md mb-4 p-4"
+                        >
+                            <div className="">
+                                <h3 className="text-sm md:text-xl font-bold text-Primary">{campaign.title}</h3>
+                                <p className="md:text-base text-Text">
+                                    <span className="font-semibold">Type:</span> {campaign.type}
+                                </p>
+                                <p className="md:text-base text-Text">
+                                    <span className="font-semibold">Deadline:</span> {campaign.deadline}
+                                </p>
+                                <p className="md:text-base text-Text">
+                                    <span className="font-semibold">Min. Donation:</span> ${campaign.minDonation}
+                                </p>
+                                <div className="mt-4">
+                                    <Link
+                                        to={`/campaigns/${campaign._id}`}
+                                        className="text-white bg-Accent text-xs md:text-base px-4 py-2 rounded-lg hover:bg-Secondary transition-colors"
+                                    >
+                                        See More
+                                    </Link>
+                                </div>
+                            </div>
+                            <div>
+                                <img
+                                    className="h-[150px] rounded-md w-full object-cover"
+                                    src={campaign.photo}
+                                    alt={campaign.title}
+                                />
                             </div>
                         </div>
-                        <div>
-                            <img
-                                className="h-[150px] rounded-md w-full object-cover"
-                                src={campaign.photo}
-                                alt={campaign.title}
-                            />
-                        </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
     );

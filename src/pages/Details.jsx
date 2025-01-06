@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import Swal from 'sweetalert2';
 
@@ -17,10 +17,15 @@ const Details = () => {
             toast.onmouseleave = Swal.resumeTimer;
         },
     });
+    const navigate = useNavigate();
 
     const { name, email, photo, minDonation, title, type, description, deadline } = data;
 
     const handleDonation = () => {
+        if (!user?.email) {
+            navigate('/login')
+            return;
+        }
         const currentDate = new Date();
         const deadline = new Date(data.deadline.split('/').reverse().join('-'));
 

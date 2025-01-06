@@ -68,9 +68,9 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-Background rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <li><NavLink to="/home" className="hover:text-Accent">Home</NavLink></li>
                             <li><NavLink to="/campaigns" className="hover:text-Accent">All Campaigns</NavLink></li>
-                            <li><NavLink to="/addCampaign" className="hover:text-Accent">Add New Campaign</NavLink></li>
-                            <li><NavLink to="/myCampaign" className="hover:text-Accent">My Campaign</NavLink></li>
-                            <li><NavLink to="/myDonations" className="hover:text-Accent">My Donations</NavLink></li>
+                            <li><NavLink to="/addCampaign" className={`hover:text-Accent ${user?.email ? '' : 'hidden'}`}>Add New Campaign</NavLink></li>
+                            <li><NavLink to="/myCampaign" className={`hover:text-Accent ${user?.email ? '' : 'hidden'}`}>My Campaign</NavLink></li>
+                            <li><NavLink to="/myDonations" className={`hover:text-Accent ${user?.email ? '' : 'hidden'}`}>My Donations</NavLink></li>
                             <li><NavLink to="/login" className="hover:text-Accent">Login</NavLink></li>
                             <li><NavLink to="/register" className="hover:text-Accent">Register</NavLink></li>
                         </ul>
@@ -83,9 +83,9 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1 space-x-4">
                         <li><NavLink to="/home" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""}`}>Home</NavLink></li>
                         <li><NavLink to="/campaigns" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""}`}>All Campaigns</NavLink></li>
-                        <li><NavLink to="/addCampaign" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""}`}>Add New Campaign</NavLink></li>
-                        <li><NavLink to="/myCampaign" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""}`}>My Campaign</NavLink></li>
-                        <li><NavLink to="/myDonations" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""}`}>My Donations</NavLink></li>
+                        <li><NavLink to="/addCampaign" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""} ${user?.email ? '' : 'hidden'}`}>Add New Campaign</NavLink></li>
+                        <li><NavLink to="/myCampaign" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""} ${user?.email ? '' : 'hidden'}`}>My Campaign</NavLink></li>
+                        <li><NavLink to="/myDonations" className={`hover:text-Accent ${location.pathname === "/home" ? "dark:text-white" : ""} ${user?.email ? '' : 'hidden'}`}>My Donations</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end flex items-center">
